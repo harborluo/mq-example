@@ -25,10 +25,19 @@ public class HelloController {
     @Autowired
     RabbitMQSender sender;
 
+
+
     DateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss SSS");
 
     @GetMapping(value = "/greeting/{name}")
     public String sayHello(@PathVariable(name = "name") String personName){
+        String message = dateFormat.format(new Date()) +" hello! " + personName;
+        sender.send(message);
+        return message;
+    }
+
+    @GetMapping(value = "/greeting/kafka/{name}")
+    public String sayKafkaHello(@PathVariable(name = "name") String personName){
         String message = dateFormat.format(new Date()) +" hello! " + personName;
         sender.send(message);
         return message;

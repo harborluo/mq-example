@@ -19,7 +19,7 @@ public class RabbitReceiver {
 
     @RabbitHandler
     public void process(String message){
-        jdbcTemplate.update("insert into mq_message(time_stamp,message) values(sysdate,?)", message);
+        jdbcTemplate.update("insert into mq_message(time_stamp,message) values(sysdate(),?)", message);
 //        System.out.println("Receive message: " + message);
     }
 

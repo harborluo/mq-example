@@ -1,1 +1,1 @@
-create table mq_message(time_stamp date,message varchar2(1000));
+create table mq_message(time_stamp date,message varchar(1000));

@@ -4,7 +4,7 @@ server:
     context-path: /
 spring:
   rabbitmq:
-    host: 192.168.11.60
+    host: 192.168.146.128
     port: 5672
     password: 123456
     username: admin
@@ -15,10 +15,46 @@ spring:
     continue-on-error: true
 
     primary:
-      driverClassName: oracle.jdbc.driver.OracleDriver
-      jdbc-url: jdbc:oracle:thin:@192.168.8.45:1521:ora11g
-      username: cdb_archive
-      password: content4me
-      test-on-borrow: true
-      validation-query: select 1 from dual
-      test-while-idle: true
+#      driverClassName: oracle.jdbc.driver.OracleDriver
+#      jdbc-url: jdbc:oracle:thin:@192.168.8.45:1521:ora11g
+#      username: cdb_archive
+#      password: content4me
+#      test-on-borrow: true
+#      validation-query: select 1 from dual
+#      test-while-idle: true
+      driverClassName: com.mysql.jdbc.Driver
+      jdbc-url: jdbc:mysql://192.168.146.128:3306/content
+      username: root
+      password: 123
+#      test-on-borrow: true
+#      validation-query: select 1 from dual
+#      test-while-idle: true
+
+
+  kafka:
+    bootstrap-servers: 192.168.146.129:9091,192.168.146.129:9092,192.168.146.129:9093
+    listener.concurrency: 3
+    consumer:
+      group-id: cloud-message-consumer-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      auto-offset-reset: earliest
+      enable-auto-commit: true
+      auto-commit-interval: 100
+
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      batch-size: 16384
+      buffer-memory: 33554432
+
+app:
+  topic:
+    hello: hello-topic
+
+logging:
+  level:
+    root: WARN
+    org:
+      springframework: INFO
+
