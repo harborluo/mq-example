@@ -76,6 +76,13 @@
 			<version>RELEASE</version>
 		</dependency>
 
+		<!-- password encrypt -->
+		<dependency>
+			<groupId>com.github.ulisesbocchio</groupId>
+			<artifactId>jasypt-spring-boot-starter</artifactId>
+			<version>1.8</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

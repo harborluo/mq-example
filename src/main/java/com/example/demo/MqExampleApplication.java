@@ -1,15 +1,19 @@
 package com.example.demo;
 
+import org.springframework.beans.factory.FactoryBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages  = "com.example")
+//@ComponentScan(basePackages  = "com.example")
 public class MqExampleApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MqExampleApplication.class, args);
+//		FactoryBean
+
 	}
+
 
 }
