@@ -1,5 +1,8 @@
 package com.example.demo;
 
+import org.junit.Assert;
+import org.junit.Test;
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RunnableFuture;
@@ -18,13 +21,20 @@ public class TestThreadLocal {
 
         @Override
         public void run() {
-            int value = sequencer.get().getAndIncrement();
+
+
+            int value = sequencer.get().incrementAndGet();
             System.out.println(Thread.currentThread().getName() + " " + value);
-//            sequencer.remove();
+
+            Assert.assertEquals(1,value);
+
+            sequencer.remove();
+
         }
     }
 
-    public static void main(String[] args) {
+    @Test
+    public void testRun(){
         ExecutorService executor = Executors.newFixedThreadPool(2);
         for(int i=0;i<10;i++) {
             executor.execute(new Task());
