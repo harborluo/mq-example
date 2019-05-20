@@ -30,11 +30,15 @@ public class Alibaba {
         {
             System.out.println(list.get(i));
         }
+
+
         BitSet bitSet=new BitSet(range);
         for(int i=0;i<range;i++)
         {
             bitSet.set(list.get(i));
         }
+
+        System.out.println(bitSet);
 
         System.out.println("0-"+range+"不在上述随机数中有"+bitSet.size());
         for (int i = 0; i < range; i++)
@@ -44,5 +48,6 @@ public class Alibaba {
                 System.out.println(i);
             }
         }
+
     }
 }
