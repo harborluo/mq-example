@@ -57,6 +57,8 @@ logging:
     root: WARN
     org:
       springframework: INFO
+    com:
+      example: DEBUG
 
 #jasypt:
 #  encryptor:

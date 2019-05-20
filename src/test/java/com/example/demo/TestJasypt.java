@@ -1,8 +1,8 @@
 package com.example.demo;
 
-import org.jasypt.encryption.StringEncryptor;
-import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.jasypt.encryption.StringEncryptor;
+//import org.junit.Test;
+//import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Created by harbor on 2019/5/19.

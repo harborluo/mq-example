@@ -1,6 +1,9 @@
 package com.example.demo.controller;
 
+import com.example.demo.aop.ControllerAspect;
 import com.example.demo.mq.RabbitMQSender;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,12 +28,15 @@ public class HelloController {
     @Autowired
     RabbitMQSender sender;
 
-
+    private Logger logger = LoggerFactory.getLogger(HelloController.class);
 
     DateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss SSS");
 
     @GetMapping(value = "/greeting/{name}")
     public String sayHello(@PathVariable(name = "name") String personName){
+
+//        logger.info("sayHello()....");
+
         String message = dateFormat.format(new Date()) +" hello! " + personName;
         sender.send(message);
         return message;

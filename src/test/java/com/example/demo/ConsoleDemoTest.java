@@ -16,14 +16,19 @@ public class ConsoleDemoTest
 {
     @Test
     public  void testConsole() {
+
         final String msg="abc";
+
         ExecutorService executorService = Executors.newFixedThreadPool(3);
+
         executorService.execute(()->{
             System.out.println(msg);
         });
+
         executorService.execute(()->{
             System.out.println(msg);
         });
+
         executorService.execute(()->{
             System.out.println(msg);
         });
