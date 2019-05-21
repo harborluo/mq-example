@@ -178,5 +178,8 @@ public class BitSetDemo {
         for (int i = bitSet.nextSetBit(0); i >= 0; i = bitSet.nextSetBit(i + 1)) {
             System.out.print(i+"\t");
         }
+
+        char test = '中';
+        System.out.println(test);
     }
 }
